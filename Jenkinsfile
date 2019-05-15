@@ -17,19 +17,19 @@ stages{
                 }
             }
         }
-	stage ('Deploy to Staging'){
+	stage ('deply-to-staging'){
             steps {
-                build job: 'Deploy-to-staging'
+                build job: 'deply-to-staging'
             }
         }
 
-        stage ('Deploy to Production'){
+        stage ('deply-to-prod'){
             steps{
                 timeout(time:5, unit:'DAYS'){
                     input message:'Approve PRODUCTION Deployment?'
                 }
 
-                build job: 'Deploy-to-Prod'
+                build job: 'deply-to-prod'
             }
             post {
                 success {
