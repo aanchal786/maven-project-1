@@ -37,7 +37,7 @@ stages{
 
                 stage ("Deploy to Production"){
                     steps {
-                        sh "scp -i /home/ec2-user/Jenkins.pem **/target/*.war ec2-user@${params.Tomcat_prod}:/var/lib/tomcat7/webapps"
+                        sh "scp -v -o StrictHostKeyChecking=no -i /home/ec2-user/Jenkins.pem **/target/*.war ec2-user@${params.Tomcat_prod}:/var/lib/tomcat7/webapps"
                     }
                 }
             }
