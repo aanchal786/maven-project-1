@@ -31,7 +31,7 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "scp -i /home/ec2-user/Jenkins.pem **/target/*.war ec2-user@${params.Tomcat_staging}:/var/lib/tomcat7/webapps"
+                        sh "scp -v -o StrictHostKeyChecking=no -i /home/ec2-user/Jenkins.pem **/target/*.war ec2-user@${params.Tomcat_staging}:/var/lib/tomcat7/webapps"
                     }
                 }
 
